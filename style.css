@@ -11,7 +11,7 @@ body {
     background-color: #121212;
     color: #e0e0e0;
     line-height: 1.6;
-    overflow-wrap: break-word; /* Garante que textos longos quebrem a linha */
+    overflow-wrap: break-word; 
 }
 
 /* ==========================================================================
@@ -20,11 +20,24 @@ body {
 header {
     background-color: #1f1f1f;
     padding: 1rem 0;
-    text-align: center;
     position: sticky;
     top: 0;
     z-index: 100;
     border-bottom: 1px solid #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Esconde o menu de navegação e o seletor de idioma por padrão */
+#mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+nav {
+    text-align: center;
 }
 
 .nav-link {
@@ -58,6 +71,19 @@ header {
 .language-switcher button:hover {
     background-color: #4ecca3;
     color: #121212;
+}
+
+/* --- Estilos do Menu Hambúrguer Responsivo --- */
+#hamburger-btn {
+    display: none; 
+    background: none;
+    border: none;
+    color: #ffffff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    position: absolute; 
+    top: 15px;
+    right: 20px;
 }
 
 /* ==========================================================================
@@ -179,13 +205,7 @@ section {
     text-align: center;
 }
 
-.skill i {
-    font-size: 3rem;
-    margin-bottom: 10px;
-    transition: transform 0.3s;
-}
-
-.skill img {
+.skill i, .skill img {
     height: 3rem;
     width: auto;
     margin-bottom: 10px;
@@ -332,22 +352,10 @@ section {
     margin: 0 0 5px 0;
 }
 
-.timeline-local {
-    display: block;
-    font-weight: bold;
-    color: #c0c0c0;
-    margin-bottom: 5px;
-}
-
-.timeline-data {
-    display: block;
-    font-size: 0.9rem;
-    color: #a0a0a0;
-    margin-bottom: 10px;
-    background-color: #1f1f1f;
-    padding: 3px 8px;
-    border-radius: 5px;
+.timeline-local, .timeline-data {
     display: inline-block;
+    color: #c0c0c0;
+    margin-bottom: 10px;
 }
 
 .timeline-descricao {
@@ -454,7 +462,7 @@ section {
 }
 
 .cartao-projeto p {
-    flex-grow: 1; 
+    flex-grow: 1;
 }
 
 .cartao-projeto a {
@@ -482,12 +490,7 @@ section {
     margin-bottom: 15px;
 }
 
-.project-tech-logos i {
-    font-size: 2.2rem;
-    transition: transform 0.3s;
-}
-
-.project-tech-logos img {
+.project-tech-logos i, .project-tech-logos img {
     height: 2.2rem;
     width: auto;
     transition: transform 0.3s;
@@ -540,7 +543,7 @@ section {
     border-radius: 50%;
     border: 3px solid #4ecca3;
     margin-bottom: 20px;
-    transition: border-color 0.3s; /* Adicionado para suavizar o hover */
+    transition: border-color 0.3s;
 }
 
 .recomendacao-link {
@@ -684,34 +687,58 @@ footer p {
 }
 
 @media (max-width: 768px) {
-    .sobre-container,
+    header {
+        align-items: flex-start;
+        padding: 15px 20px;
+    }
+    
+    #hamburger-btn {
+        display: block;
+    }
+
+    #mobile-menu {
+        display: none;
+        width: 100%;
+        margin-top: 15px;
+    }
+    
+    #mobile-menu.open {
+        display: flex;
+    }
+
+    #mobile-menu nav {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    #mobile-menu .nav-link {
+        padding: 15px 0;
+        border-bottom: 1px solid #333;
+        width: 100%;
+    }
+
+    .language-switcher {
+        padding-top: 20px;
+        padding-bottom: 10px;
+    }
+    
+    .sobre-container {
+        flex-direction: column;
+    }
+    
     .curriculo-container {
         grid-template-columns: 1fr;
-        gap: 0;
     }
 
     .container-projetos {
         grid-template-columns: 1fr;
     }
 
-    .coluna-esquerda,
-    .coluna-direita,
-    .coluna-curriculo {
-        width: 100%;
-        margin-bottom: 40px;
-    }
-    
-    .coluna-curriculo:last-child {
-        margin-bottom: 0;
+    .coluna-direita, .coluna-curriculo {
+        margin-top: 40px;
     }
 
-    .coluna-esquerda h3,
-    .coluna-direita h2,
-    .coluna-curriculo h3 {
+    .coluna-direita h2, .coluna-curriculo h3 {
         text-align: center;
-    }
-
-    .habilidades-container {
-        justify-content: center;
     }
 }

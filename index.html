@@ -19,18 +19,24 @@
 <body>
 
     <header>
-        <nav>
-            <a href="#inicio" class="nav-link" data-key="nav_inicio">Início</a>
-            <a href="#sobre" class="nav-link" data-key="nav_sobre">Sobre Mim</a>
-            <a href="#curriculo" class="nav-link" data-key="nav_curriculo">Currículo</a>
-            <a href="#projetos" class="nav-link" data-key="nav_projetos">Projetos</a>
-            <a href="#recomendacoes" class="nav-link" data-key="nav_recomendacoes">Recomendações</a>
-            <a href="#contato" class="nav-link" data-key="nav_contato">Contato</a>
-        </nav>
-        <div class="language-switcher">
-            <button onclick="changeLanguage('pt')">Português</button>
-            <button onclick="changeLanguage('en')">English</button>
-            <button onclick="changeLanguage('es')">Español</button>
+        <button id="hamburger-btn" aria-label="Abrir menu">
+            <i class="fa-solid fa-bars"></i>
+        </button>
+
+        <div id="mobile-menu">
+            <nav>
+                <a href="#inicio" class="nav-link" data-key="nav_inicio">Início</a>
+                <a href="#sobre" class="nav-link" data-key="nav_sobre">Sobre Mim</a>
+                <a href="#curriculo" class="nav-link" data-key="nav_curriculo">Currículo</a>
+                <a href="#projetos" class="nav-link" data-key="nav_projetos">Projetos</a>
+                <a href="#recomendacoes" class="nav-link" data-key="nav_recomendacoes">Recomendações</a>
+                <a href="#contato" class="nav-link" data-key="nav_contato">Contato</a>
+            </nav>
+            <div class="language-switcher">
+                <button onclick="changeLanguage('pt')">Português</button>
+                <button onclick="changeLanguage('en')">English</button>
+                <button onclick="changeLanguage('es')">Español</button>
+            </div>
         </div>
     </header>
 
@@ -238,7 +244,7 @@
             </a>
         </div>
         <div class="copyright" data-key="copyright">
-            &copy; 2024 Matheus Brito. Todos os direitos reservados.
+            &copy; 2025 Matheus Brito. Todos os direitos reservados.
         </div>
     </footer>
 
@@ -257,172 +263,24 @@
             }
         };
 
+        // Lógica para o Menu Hambúrguer
+        const hamburgerBtn = document.getElementById('hamburger-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        hamburgerBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('open');
+        });
+
         // Lógica para a Tradução de Idiomas
         const translations = {
             'pt': {
-                'nav_inicio': 'Início',
-                'nav_sobre': 'Sobre Mim',
-                'nav_curriculo': 'Currículo',
-                'nav_projetos': 'Projetos',
-                'nav_recomendacoes': 'Recomendações',
-                'nav_contato': 'Contato',
-                'nome_principal': 'Matheus Brito',
-                'titulo_habilidades': 'Habilidades',
-                'titulo_sobre_mim': 'Sobre mim',
-                'info_nome': 'Nome:',
-                'info_perfil': 'Perfil:',
-                'info_perfil_valor': 'Analista de Dados',
-                'btn_cv': 'Download CV',
-                'p1_sobre_mim': 'Como <strong>Analista de Dados</strong>, foco em transformar dados em insights estratégicos. Tenho sólidas habilidades em <strong>SQL</strong> para integração, limpeza e modelagem de dados, na criação de dashboards interativos com <strong>Power BI</strong> e <strong>DAX</strong> para análise de KPIs operacionais e comerciais, e no uso de <strong>Python</strong> (com Pandas e NumPy) para automatizar tarefas e consolidar relatórios gerenciais.',
-                'p2_sobre_mim': 'No Banco Bradesco, um dos meus principais projetos foi a criação de um dashboard estratégico para o controle de metas da diretoria, que se tornou uma ferramenta essencial para a tomada de decisões. Na frente operacional, minha contribuição foi construir painéis analíticos que cruzavam informações de diversas bases de dados, transformando dados brutos em KPIs acionáveis para a otimização e o monitoramento dos processos. Complementarmente, desenvolvi um aplicativo em Power Apps para o monitoramento de SLAs em tempo real e atuei no suporte a auditorias de sistemas, extraindo e analisando logs para a investigação de falhas.',
-                'titulo_curriculo': 'Meu Currículo',
-                'subtitulo_formacao': 'Formação Acadêmica',
-                'formacao1_titulo': 'Tecnólogo em Análise e Desenvolvimento de Sistemas',
-                'formacao1_data': 'Janeiro/2023 - Junho/2025',
-                'formacao2_titulo': 'Técnico em Informática',
-                'formacao2_data': 'Janeiro/2020 - Dezembro/2022',
-                'subtitulo_experiencia': 'Experiência Profissional',
-                'exp1_titulo': 'Estagiário de Análise de Dados',
-                'exp1_data': 'Agosto/2023 - Presente',
-                'exp1_li1': 'Criação de dashboards interativos no Power BI, aplicando DAX para análise de KPIs.',
-                'exp1_li2': 'Integração, limpeza e modelagem de dados em SQL Server para automação de relatórios.',
-                'exp1_li3': 'Desenvolvimento de scripts em Python para automatizar tarefas e consolidar planilhas.',
-                'exp1_li4': 'Construção de aplicativo no Power Apps para controle de SLA.',
-                'exp1_li5': 'Apoio em auditorias de sistemas, com extração e criação de visualizações analíticas.',
-                'subtitulo_cursos': 'Cursos e Certificados',
-                'curso1': 'Power BI: DAX, ETL e Dashboards Interativos',
-                'curso2': 'SQL e NoSQL para Análise de Dados',
-                'curso3': 'PySpark: Manipulação de Dados',
-                'curso4': 'Databricks: AI/BI',
-                'curso5': 'Metodologias Ágeis (Scrum)',
-                'titulo_projetos': 'Meus Projetos',
-                'proj1_titulo': 'Análise de Dados Históricos da NBA',
-                'proj1_desc': 'Dashboard interativo que analisa a evolução dos jogadores da NBA e a correlação entre altura e performance.',
-                'btn_ver_projeto': 'Ver Projeto',
-                'proj2_titulo': 'Análise Estatística do Preço do Bitcoin',
-                'proj2_desc': 'Estudo acadêmico da volatilidade do Bitcoin, aplicando Regressão Linear com transformação log(10) para modelar a relação entre volume e preço.',
-                'proj3_titulo': 'Gestão de Serviços via Power Apps',
-                'proj3_desc': 'Desenvolvimento de uma solução low-code para otimizar o controle de serviços de telecomunicações, <strong>resultando em uma economia estimada de R$200 mil para a área</strong>. O aplicativo centraliza informações, oferece visibilidade em tempo real e aumenta a confiabilidade dos dados, reduzindo o retrabalho.',
-                'titulo_recomendacoes': 'Recomendações',
-                'rec1_titulo': 'Coordenadora de TI no Banco Bradesco',
-                'rec1_texto': '"Sua determinação, vontade de participar e ajudar as pessoas é o seu ‘pulo do gato’ que vai te levar a uma trajetória de sucesso profissional com toda certeza. Um profissional com um talento inegável e valores que transbordam."',
-                'rec2_titulo': 'Analista de Operações no Banco Bradesco',
-                'rec2_texto': '"Você é excepcional e vai longe! Um profissional muito inteligente e um ser humano com uma energia, educação e posicionamentos admiráveis. Você merece o mundo."',
-                'rec3_titulo': 'Auditor de Tecnologia da Informação no Banco Bradesco',
-                'rec3_texto': '"Conheço o Matheus há mais de uma década e sua essência sempre foi a mesma: uma combinação impressionante de disciplina, garra e resiliência. Essas qualidades, unidas à sua competência técnica e notável capacidade de aprendizado, são a fórmula do seu sucesso profissional."',
-                'titulo_contato': 'Contato',
-                'p_contato': 'Você pode me encontrar nas redes abaixo:',
-                'copyright': '&copy; 2025 Matheus Brito. Todos os direitos reservados.'
+                'nav_inicio': 'Início', 'nav_sobre': 'Sobre Mim', 'nav_curriculo': 'Currículo', 'nav_projetos': 'Projetos', 'nav_recomendacoes': 'Recomendações', 'nav_contato': 'Contato', 'nome_principal': 'Matheus Brito', 'titulo_habilidades': 'Habilidades', 'titulo_sobre_mim': 'Sobre mim', 'info_nome': 'Nome:', 'info_perfil': 'Perfil:', 'info_perfil_valor': 'Analista de Dados', 'btn_cv': 'Download CV', 'p1_sobre_mim': 'Como <strong>Analista de Dados</strong>, foco em transformar dados em insights estratégicos. Tenho sólidas habilidades em <strong>SQL</strong> para integração, limpeza e modelagem de dados, na criação de dashboards interativos com <strong>Power BI</strong> e <strong>DAX</strong> para análise de KPIs operacionais e comerciais, e no uso de <strong>Python</strong> (com Pandas e NumPy) para automatizar tarefas e consolidar relatórios gerenciais.', 'p2_sobre_mim': 'No Banco Bradesco, um dos meus principais projetos foi a criação de um dashboard estratégico para o controle de metas da diretoria, que se tornou uma ferramenta essencial para a tomada de decisões. Na frente operacional, minha contribuição foi construir painéis analíticos que cruzavam informações de diversas bases de dados, transformando dados brutos em KPIs acionáveis para a otimização e o monitoramento dos processos. Complementarmente, desenvolvi um aplicativo em Power Apps para o monitoramento de SLAs em tempo real e atuei no suporte a auditorias de sistemas, extraindo e analisando logs para a investigação de falhas.', 'titulo_curriculo': 'Meu Currículo', 'subtitulo_formacao': 'Formação Acadêmica', 'formacao1_titulo': 'Tecnólogo em Análise e Desenvolvimento de Sistemas', 'formacao1_data': 'Janeiro/2023 - Junho/2025', 'formacao2_titulo': 'Técnico em Informática', 'formacao2_data': 'Janeiro/2020 - Dezembro/2022', 'subtitulo_experiencia': 'Experiência Profissional', 'exp1_titulo': 'Estagiário de Análise de Dados', 'exp1_data': 'Agosto/2023 - Presente', 'exp1_li1': 'Criação de dashboards interativos no Power BI, aplicando DAX para análise de KPIs.', 'exp1_li2': 'Integração, limpeza e modelagem de dados em SQL Server para automação de relatórios.', 'exp1_li3': 'Desenvolvimento de scripts em Python para automatizar tarefas e consolidar planilhas.', 'exp1_li4': 'Construção de aplicativo no Power Apps para controle de SLA.', 'exp1_li5': 'Apoio em auditorias de sistemas, com extração e criação de visualizações analíticas.', 'subtitulo_cursos': 'Cursos e Certificados', 'curso1': 'Power BI: DAX, ETL e Dashboards Interativos', 'curso2': 'SQL e NoSQL para Análise de Dados', 'curso3': 'PySpark: Manipulação de Dados', 'curso4': 'Databricks: AI/BI', 'curso5': 'Metodologias Ágeis (Scrum)', 'titulo_projetos': 'Meus Projetos', 'proj1_titulo': 'Análise de Dados Históricos da NBA', 'proj1_desc': 'Dashboard interativo que analisa a evolução dos jogadores da NBA e a correlação entre altura e performance.', 'btn_ver_projeto': 'Ver Projeto', 'proj2_titulo': 'Análise Estatística do Preço do Bitcoin', 'proj2_desc': 'Estudo acadêmico da volatilidade do Bitcoin, aplicando Regressão Linear com transformação log(10) para modelar a relação entre volume e preço.', 'proj3_titulo': 'Gestão de Serviços via Power Apps', 'proj3_desc': 'Desenvolvimento de uma solução low-code para otimizar o controle de serviços de telecomunicações, <strong>resultando em uma economia estimada de R$200 mil para a área</strong>. O aplicativo centraliza informações, oferece visibilidade em tempo real e aumenta a confiabilidade dos dados, reduzindo o retrabalho.', 'titulo_recomendacoes': 'Recomendações', 'rec1_titulo': 'Coordenadora de TI no Banco Bradesco', 'rec1_texto': '"Sua determinação, vontade de participar e ajudar as pessoas é o seu ‘pulo do gato’ que vai te levar a uma trajetória de sucesso profissional com toda certeza. Um profissional com um talento inegável e valores que transbordam."', 'rec2_titulo': 'Analista de Operações no Banco Bradesco', 'rec2_texto': '"Você é excepcional e vai longe! Um profissional muito inteligente e um ser humano com uma energia, educação e posicionamentos admiráveis. Você merece o mundo."', 'rec3_titulo': 'Auditor de Tecnologia da Informação no Banco Bradesco', 'rec3_texto': '"Conheço o Matheus há mais de uma década e sua essência sempre foi a mesma: uma combinação impressionante de disciplina, garra e resiliência. Essas qualidades, unidas à sua competência técnica e notável capacidade de aprendizado, são a fórmula do seu sucesso profissional."', 'titulo_contato': 'Contato', 'p_contato': 'Você pode me encontrar nas redes abaixo:', 'copyright': '&copy; 2025 Matheus Brito. Todos os direitos reservados.'
             },
             'en': {
-                'nav_inicio': 'Home',
-                'nav_sobre': 'About Me',
-                'nav_curriculo': 'Resume',
-                'nav_projetos': 'Projects',
-                'nav_recomendacoes': 'Recommendations',
-                'nav_contato': 'Contact',
-                'nome_principal': 'Matheus Brito',
-                'titulo_habilidades': 'Skills',
-                'titulo_sobre_mim': 'About me',
-                'info_nome': 'Name:',
-                'info_perfil': 'Profile:',
-                'info_perfil_valor': 'Data Analyst',
-                'btn_cv': 'Download CV',
-                'p1_sobre_mim': 'As a <strong>Data Analyst</strong>, I focus on turning data into strategic insights. I have solid skills in <strong>SQL</strong> for data integration, cleaning, and modeling; creating interactive dashboards with <strong>Power BI</strong> and <strong>DAX</strong> for analyzing operational and commercial KPIs; and using <strong>Python</strong> (with Pandas and NumPy) to automate tasks and consolidate management reports.',
-                'p2_sobre_mim': 'At Banco Bradesco, one of my main projects was creating a strategic dashboard to monitor executive goals, which became an essential tool for decision-making. On the operational front, I built analytical panels that crossed information from various databases, transforming raw data into actionable KPIs for process optimization and monitoring. Additionally, I developed a Power Apps application for real-time SLA monitoring and supported system audits by extracting and analyzing logs to investigate failures.',
-                'titulo_curriculo': 'My Resume',
-                'subtitulo_formacao': 'Education',
-                'formacao1_titulo': 'Technologist in Systems Analysis and Development',
-                'formacao1_data': 'January 2023 - June 2025',
-                'formacao2_titulo': 'IT Technician',
-                'formacao2_data': 'January 2020 - December 2022',
-                'subtitulo_experiencia': 'Professional Experience',
-                'exp1_titulo': 'Data Analyst Intern',
-                'exp1_data': 'August 2023 - Present',
-                'exp1_li1': 'Creation of interactive dashboards in Power BI, applying DAX for KPI analysis.',
-                'exp1_li2': 'Integration, cleaning, and modeling of data in SQL Server for report automation.',
-                'exp1_li3': 'Development of Python scripts to automate tasks and consolidate spreadsheets.',
-                'exp1_li4': 'Construction of a Power Apps application for SLA control.',
-                'exp1_li5': 'Support in system audits, with log extraction and creation of analytical visualizations.',
-                'subtitulo_cursos': 'Courses & Certificates',
-                'curso1': 'Power BI: DAX, ETL, and Interactive Dashboards',
-                'curso2': 'SQL and NoSQL for Data Analysis',
-                'curso3': 'PySpark: Data Manipulation',
-                'curso4': 'Databricks: AI/BI',
-                'curso5': 'Agile Methodologies (Scrum)',
-                'titulo_projetos': 'My Projects',
-                'proj1_titulo': 'NBA Historical Data Analysis',
-                'proj1_desc': 'Interactive dashboard that analyzes the evolution of NBA players and the correlation between height and performance.',
-                'btn_ver_projeto': 'View Project',
-                'proj2_titulo': 'Statistical Analysis of Bitcoin Price',
-                'proj2_desc': 'Academic study on Bitcoin volatility, applying Linear Regression with a log(10) transformation to model the relationship between volume and price.',
-                'proj3_titulo': 'Service Management via Power Apps',
-                'proj3_desc': 'Development of a low-code solution to optimize telecommunication services control, <strong>resulting in an estimated savings of R$200,000 for the department</strong>. The application centralizes information, provides real-time visibility, and increases data reliability, reducing rework.',
-                'titulo_recomendacoes': 'Recommendations',
-                'rec1_titulo': 'IT Coordinator at Banco Bradesco',
-                'rec1_texto': '"His determination, willingness to participate and help people is his \'ace in the hole\' that will certainly lead him to a successful professional trajectory. A professional with undeniable talent and overflowing values."',
-                'rec2_titulo': 'Operations Analyst at Banco Bradesco',
-                'rec2_texto': '"You are exceptional and will go far! A very intelligent professional and a human being with admirable energy, education, and positions. You deserve the world."',
-                'rec3_titulo': 'IT Auditor at Banco Bradesco',
-                'rec3_texto': '"I have known Matheus for over a decade, and his core character has always been the same: an impressive combination of discipline, grit, and resilience. These qualities, combined with his technical competence and remarkable ability to learn, are the formula for his professional success.',
-                'titulo_contato': 'Contact',
-                'p_contato': 'You can find me on the networks below:',
-                'copyright': '&copy; 2025 Matheus Brito. All rights reserved.'
+                'nav_inicio': 'Home', 'nav_sobre': 'About Me', 'nav_curriculo': 'Resume', 'nav_projetos': 'Projects', 'nav_recomendacoes': 'Recommendations', 'nav_contato': 'Contact', 'nome_principal': 'Matheus Brito', 'titulo_habilidades': 'Skills', 'titulo_sobre_mim': 'About me', 'info_nome': 'Name:', 'info_perfil': 'Profile:', 'info_perfil_valor': 'Data Analyst', 'btn_cv': 'Download CV', 'p1_sobre_mim': 'As a <strong>Data Analyst</strong>, I focus on turning data into strategic insights. I have solid skills in <strong>SQL</strong> for data integration, cleaning, and modeling; creating interactive dashboards with <strong>Power BI</strong> and <strong>DAX</strong> for analyzing operational and commercial KPIs; and using <strong>Python</strong> (with Pandas and NumPy) to automate tasks and consolidate management reports.', 'p2_sobre_mim': 'At Banco Bradesco, one of my main projects was creating a strategic dashboard to monitor executive goals, which became an essential tool for decision-making. On the operational front, I built analytical panels that crossed information from various databases, transforming raw data into actionable KPIs for process optimization and monitoring. Additionally, I developed a Power Apps application for real-time SLA monitoring and supported system audits by extracting and analyzing logs to investigate failures.', 'titulo_curriculo': 'My Resume', 'subtitulo_formacao': 'Education', 'formacao1_titulo': 'Technologist in Systems Analysis and Development', 'formacao1_data': 'January 2023 - June 2025', 'formacao2_titulo': 'IT Technician', 'formacao2_data': 'January 2020 - December 2022', 'subtitulo_experiencia': 'Professional Experience', 'exp1_titulo': 'Data Analyst Intern', 'exp1_data': 'August 2023 - Present', 'exp1_li1': 'Creation of interactive dashboards in Power BI, applying DAX for KPI analysis.', 'exp1_li2': 'Integration, cleaning, and modeling of data in SQL Server for report automation.', 'exp1_li3': 'Development of Python scripts to automate tasks and consolidate spreadsheets.', 'exp1_li4': 'Construction of a Power Apps application for SLA control.', 'exp1_li5': 'Support in system audits, with log extraction and creation of analytical visualizations.', 'subtitulo_cursos': 'Courses & Certificates', 'curso1': 'Power BI: DAX, ETL, and Interactive Dashboards', 'curso2': 'SQL and NoSQL for Data Analysis', 'curso3': 'PySpark: Data Manipulation', 'curso4': 'Databricks: AI/BI', 'curso5': 'Agile Methodologies (Scrum)', 'titulo_projetos': 'My Projects', 'proj1_titulo': 'NBA Historical Data Analysis', 'proj1_desc': 'Interactive dashboard that analyzes the evolution of NBA players and the correlation between height and performance.', 'btn_ver_projeto': 'View Project', 'proj2_titulo': 'Statistical Analysis of Bitcoin Price', 'proj2_desc': 'Academic study on Bitcoin volatility, applying Linear Regression with a log(10) transformation to model the relationship between volume and price.', 'proj3_titulo': 'Service Management via Power Apps', 'proj3_desc': 'Development of a low-code solution to optimize telecommunication services control, <strong>resulting in an estimated savings of R$200,000 for the department</strong>. The application centralizes information, provides real-time visibility, and increases data reliability, reducing rework.', 'titulo_recomendacoes': 'Recommendations', 'rec1_titulo': 'IT Coordinator at Banco Bradesco', 'rec1_texto': '"His determination, willingness to participate and help people is his \'ace in the hole\' that will certainly lead him to a successful professional trajectory. A professional with undeniable talent and overflowing values."', 'rec2_titulo': 'Operations Analyst at Banco Bradesco', 'rec2_texto': '"You are exceptional and will go far! A very intelligent professional and a human being with admirable energy, education, and positions. You deserve the world."', 'rec3_titulo': 'IT Auditor at Banco Bradesco', 'rec3_texto': '"I have known Matheus for over a decade, and his core character has always been the same: an impressive combination of discipline, grit, and resilience. These qualities, combined with his technical competence and remarkable ability to learn, are the formula for his professional success.', 'titulo_contato': 'Contact', 'p_contato': 'You can find me on the networks below:', 'copyright': '&copy; 2025 Matheus Brito. All rights reserved.'
             },
             'es': {
-                'nav_inicio': 'Inicio',
-                'nav_sobre': 'Sobre Mí',
-                'nav_curriculo': 'Currículum',
-                'nav_projetos': 'Proyectos',
-                'nav_recomendacoes': 'Recomendaciones',
-                'nav_contato': 'Contacto',
-                'nome_principal': 'Matheus Brito',
-                'titulo_habilidades': 'Habilidades',
-                'titulo_sobre_mim': 'Sobre mí',
-                'info_nome': 'Nombre:',
-                'info_perfil': 'Perfil:',
-                'info_perfil_valor': 'Analista de Datos',
-                'btn_cv': 'Descargar CV',
-                'p1_sobre_mim': 'Como <strong>Analista de Datos</strong>, me enfoco en transformar datos en insights estratégicos. Tengo sólidas habilidades en <strong>SQL</strong> para la integración, limpieza y modelado de datos; creando dashboards interactivos con <strong>Power BI</strong> y <strong>DAX</strong> para el análisis de KPIs operativos y comerciales; y usando <strong>Python</strong> (con Pandas y NumPy) para automatizar tareas y consolidar informes de gestión.',
-                'p2_sobre_mim': 'En Banco Bradesco, uno de mis principales proyectos fue la creación de un dashboard estratégico para monitorear metas ejecutivas, que se convirtió en una herramienta esencial para la toma de decisiones. En el frente operativo, construí paneles analíticos que cruzaban información de diversas bases de datos, transformando datos brutos en KPIs accionables para la optimización y monitoreo de procesos. Adicionalmente, desarrollé una aplicación en Power Apps para el monitoreo de SLAs en tiempo real y apoyé en auditorías de sistemas, extrayendo y analizando logs para investigar fallos.',
-                'titulo_curriculo': 'Mi Currículum',
-                'subtitulo_formacao': 'Formación Académica',
-                'formacao1_titulo': 'Tecnólogo en Análisis y Desarrollo de Sistemas',
-                'formacao1_data': 'Enero 2023 - Junio 2025',
-                'formacao2_titulo': 'Técnico en Informática',
-                'formacao2_data': 'Enero 2020 - Diciembre 2022',
-                'subtitulo_experiencia': 'Experiencia Profesional',
-                'exp1_titulo': 'Pasante de Analista de Datos',
-                'exp1_data': 'Agosto 2023 - Actualidad',
-                'exp1_li1': 'Creación de dashboards interactivos en Power BI, aplicando DAX para análisis de KPIs.',
-                'exp1_li2': 'Integración, limpieza y modelado de datos en SQL Server para la automatización de informes.',
-                'exp1_li3': 'Desarrollo de scripts en Python para automatizar tareas y consolidar hojas de cálculo.',
-                'exp1_li4': 'Construcción de una aplicación en Power Apps para el control de SLA.',
-                'exp1_li5': 'Apoyo en auditorías de sistemas, con extracción de logs y creación de visualizaciones analíticas.',
-                'subtitulo_cursos': 'Cursos y Certificados',
-                'curso1': 'Power BI: DAX, ETL y Dashboards Interactivos',
-                'curso2': 'SQL y NoSQL para Análisis de Datos',
-                'curso3': 'PySpark: Manipulación de Datos',
-                'curso4': 'Databricks: AI/BI',
-                'curso5': 'Metodologías Ágiles (Scrum)',
-                'titulo_projetos': 'Mis Proyectos',
-                'proj1_titulo': 'Análisis de Datos Históricos de la NBA',
-                'proj1_desc': 'Dashboard interactivo que analiza la evolución de los jugadores de la NBA y la correlación entre altura y rendimiento.',
-                'btn_ver_projeto': 'Ver Proyecto',
-                'proj2_titulo': 'Análisis Estadístico del Precio de Bitcoin',
-                'proj2_desc': 'Estudio académico sobre la volatilidad de Bitcoin, aplicando Regresión Lineal con transformación log(10) para modelar la relación entre volumen y precio.',
-                'proj3_titulo': 'Gestión de Servicios vía Power Apps',
-                'proj3_desc': 'Desarrollo de una solución low-code para optimizar el control de servicios de telecomunicaciones, <strong>resultando en un ahorro estimado de R$200 mil para el área</strong>. La aplicación centraliza la información, ofrece visibilidad en tiempo real y aumenta la fiabilidad de los datos, reduciendo el retrabajo.',
-                'titulo_recomendacoes': 'Recomendaciones',
-                'rec1_titulo': 'Coordinadora de TI en Banco Bradesco',
-                'rec1_texto': '"Su determinación, ganas de participar y ayudar a las personas es su \'as en la manga\' que sin duda lo llevará a una exitosa trayectoria profesional. Un profesional con un talento innegable y valores que desbordan."',
-                'rec2_titulo': 'Analista de Operaciones en Banco Bradesco',
-                'rec2_texto': '"¡Eres excepcional y llegarás lejos! Un profesional muy inteligente y un ser humano con una energía, educación y posturas admirables. Te mereces el mundo."',
-                'rec3_titulo': 'Auditor de Tecnologías de la Información en Banco Bradesco',
-                'rec3_texto': '"Conozco a Matheus desde hace más de una década y su esencia siempre ha sido la misma: una combinación impresionante de disciplina, garra y resiliencia. Estas cualidades, unidas a su competencia técnica y notable capacidad de aprendizaje, son la fórmula de su éxito profesional."',
-                'titulo_contato': 'Contacto',
-                'p_contato': 'Puedes encontrarme en las siguientes redes:',
-                'copyright': '&copy; 2025 Matheus Brito. Todos los derechos reservados.'
+                'nav_inicio': 'Inicio', 'nav_sobre': 'Sobre Mí', 'nav_curriculo': 'Currículum', 'nav_projetos': 'Proyectos', 'nav_recomendacoes': 'Recomendaciones', 'nav_contato': 'Contacto', 'nome_principal': 'Matheus Brito', 'titulo_habilidades': 'Habilidades', 'titulo_sobre_mim': 'Sobre mí', 'info_nome': 'Nombre:', 'info_perfil': 'Perfil:', 'info_perfil_valor': 'Analista de Datos', 'btn_cv': 'Descargar CV', 'p1_sobre_mim': 'Como <strong>Analista de Datos</strong>, me enfoco en transformar datos en insights estratégicos. Tengo sólidas habilidades en <strong>SQL</strong> para la integración, limpieza y modelado de datos; creando dashboards interactivos con <strong>Power BI</strong> y <strong>DAX</strong> para el análisis de KPIs operativos y comerciales; y usando <strong>Python</strong> (con Pandas y NumPy) para automatizar tareas y consolidar informes de gestión.', 'p2_sobre_mim': 'En Banco Bradesco, uno de mis principales proyectos fue la creación de un dashboard estratégico para monitorear metas ejecutivas, que se convirtió en una herramienta esencial para la toma de decisiones. En el frente operativo, construí paneles analíticos que cruzaban información de diversas bases de datos, transformando datos brutos en KPIs accionables para la optimización y monitoreo de procesos. Adicionalmente, desarrollé una aplicación en Power Apps para el monitoreo de SLAs en tiempo real y apoyé en auditorías de sistemas, extrayendo y analizando logs para investigar fallos.', 'titulo_curriculo': 'Mi Currículum', 'subtitulo_formacao': 'Formación Académica', 'formacao1_titulo': 'Tecnólogo en Análisis y Desarrollo de Sistemas', 'formacao1_data': 'Enero 2023 - Junio 2025', 'formacao2_titulo': 'Técnico en Informática', 'formacao2_data': 'Enero 2020 - Diciembre 2022', 'subtitulo_experiencia': 'Experiencia Profesional', 'exp1_titulo': 'Pasante de Analista de Datos', 'exp1_data': 'Agosto 2023 - Actualidad', 'exp1_li1': 'Creación de dashboards interactivos en Power BI, aplicando DAX para análisis de KPIs.', 'exp1_li2': 'Integración, limpieza y modelado de datos en SQL Server para la automatización de informes.', 'exp1_li3': 'Desarrollo de scripts en Python para automatizar tareas y consolidar hojas de cálculo.', 'exp1_li4': 'Construcción de una aplicación en Power Apps para el control de SLA.', 'exp1_li5': 'Apoyo en auditorías de sistemas, con extracción de logs y creación de visualizaciones analíticas.', 'subtitulo_cursos': 'Cursos y Certificados', 'curso1': 'Power BI: DAX, ETL y Dashboards Interactivos', 'curso2': 'SQL y NoSQL para Análisis de Datos', 'curso3': 'PySpark: Manipulación de Datos', 'curso4': 'Databricks: AI/BI', 'curso5': 'Metodologías Ágiles (Scrum)', 'titulo_projetos': 'Mis Proyectos', 'proj1_titulo': 'Análisis de Datos Históricos de la NBA', 'proj1_desc': 'Dashboard interactivo que analiza la evolución de los jugadores de la NBA y la correlación entre altura y rendimiento.', 'btn_ver_projeto': 'Ver Proyecto', 'proj2_titulo': 'Análisis Estadístico del Precio de Bitcoin', 'proj2_desc': 'Estudio académico sobre la volatilidad de Bitcoin, aplicando Regresión Lineal con transformación log(10) para modelar la relación entre volumen y precio.', 'proj3_titulo': 'Gestión de Servicios vía Power Apps', 'proj3_desc': 'Desarrollo de una solución low-code para optimizar el control de servicios de telecomunicaciones, <strong>resultando en un ahorro estimado de R$200 mil para el área</strong>. La aplicación centraliza la información, ofrece visibilidad en tiempo real y aumenta la fiabilidad de los datos, reduciendo el retrabajo.', 'titulo_recomendacoes': 'Recomendaciones', 'rec1_titulo': 'Coordinadora de TI en Banco Bradesco', 'rec1_texto': '"Su determinación, ganas de participar y ayudar a las personas es su \'as en la manga\' que sin duda lo llevará a una exitosa trayectoria profesional. Un profesional con un talento innegable y valores que desbordan."', 'rec2_titulo': 'Analista de Operaciones en Banco Bradesco', 'rec2_texto': '"¡Eres excepcional y llegarás lejos! Un profesional muy inteligente y un ser humano con una energía, educación y posturas admirables. Te mereces el mundo."', 'rec3_titulo': 'Auditor de Tecnologías de la Información en Banco Bradesco', 'rec3_texto': '"Conozco a Matheus desde hace más de una década y su esencia siempre ha sido la misma: una combinación impresionante de disciplina, garra y resiliencia. Estas cualidades, unidas a su competencia técnica y notable capacidad de aprendizaje, son la fórmula de su éxito profesional."', 'titulo_contato': 'Contacto', 'p_contato': 'Puedes encontrarme en las siguientes redes:', 'copyright': '&copy; 2025 Matheus Brito. Todos los derechos reservados.'
             }
         };
 
