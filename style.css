@@ -1,0 +1,691 @@
+/* ==========================================================================
+   Estilos Gerais
+   ========================================================================== */
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    background-color: #121212;
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+/* ==========================================================================
+   Cabeçalho e Navegação
+   ========================================================================== */
+header {
+    background-color: #1f1f1f;
+    padding: 1rem 0;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    border-bottom: 1px solid #333;
+}
+
+.nav-link {
+    color: #ffffff;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #4ecca3;
+}
+
+/* ==========================================================================
+   Layout das Seções Principais
+   ========================================================================== */
+section {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+/* ==========================================================================
+   Seção: Início (Hero Section)
+   ========================================================================== */
+#inicio {
+    background-image: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.7)), url('img/wallpaper-hero.png');
+    height: 100vh;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 20px;
+}
+
+.hero-content {
+    animation: fadeIn 1.5s ease-in-out;
+}
+
+.logo-inicial {
+    font-family: 'Poppins', sans-serif;
+    font-size: 6rem;
+    font-weight: 800;
+    color: #ffffff;
+    margin-bottom: 20px;
+    text-shadow: 3px 3px 8px rgba(0, 0, 0, 0.5);
+    border: 4px solid #4ecca3;
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(31, 31, 31, 0.5);
+}
+
+.logo-inicial span {
+    color: #4ecca3;
+}
+
+#inicio h1 {
+    font-family: 'Poppins', sans-serif;
+    color: #ffffff;
+    font-size: 2.5rem;
+    font-weight: 700;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    margin: 0;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   Seção: Sobre Mim
+   ========================================================================== */
+#sobre {
+    background-color: #1f1f1f;
+    padding: 80px 20px;
+}
+
+.sobre-container {
+    display: flex;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 40px;
+    align-items: flex-start;
+}
+
+.coluna-esquerda {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.foto-perfil-sobre {
+    width: 100%;
+    max-width: 250px;
+    border-radius: 15px;
+    border: 3px solid #444;
+    margin-bottom: 30px;
+}
+
+.coluna-esquerda h3 {
+    font-size: 1.8rem;
+    color: #4ecca3;
+    margin-bottom: 20px;
+}
+
+.habilidades-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+}
+
+.skill {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 80px;
+    text-align: center;
+}
+
+.skill i {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+
+.skill img {
+    height: 3rem;
+    width: auto;
+    margin-bottom: 10px;
+    transition: transform 0.3s;
+}
+
+.skill i:hover,
+.skill img:hover {
+    transform: scale(1.15);
+}
+
+.skill span {
+    font-size: 1rem;
+    color: #e0e0e0;
+}
+
+.coluna-direita {
+    flex: 2;
+    text-align: left;
+}
+
+.coluna-direita h2 {
+    text-align: left;
+    margin-top: 0;
+    font-size: 2.5rem;
+    color: #4ecca3;
+}
+
+.info-lista {
+    list-style: none;
+    padding: 0;
+    margin-bottom: 20px;
+    border-top: 1px solid #444;
+    border-bottom: 1px solid #444;
+    padding: 15px 0;
+}
+
+.info-lista li {
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.info-lista a {
+    color: #4ecca3;
+    text-decoration: none;
+}
+
+.info-lista a:hover {
+    text-decoration: underline;
+}
+
+.btn-download {
+    display: inline-block;
+    background-color: #4ecca3;
+    color: #121212;
+    padding: 12px 25px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-download:hover {
+    background-color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.btn-download i {
+    margin-right: 8px;
+}
+
+.coluna-direita p {
+    font-size: 1.1rem;
+    line-height: 1.7;
+    color: #c0c0c0;
+}
+
+/* ==========================================================================
+   Seção: Currículo
+   ========================================================================== */
+#curriculo {
+    background-color: #121212;
+}
+
+#curriculo h2 {
+    font-size: 2.5rem;
+    color: #4ecca3;
+    margin-bottom: 40px;
+}
+
+.curriculo-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    max-width: 1100px;
+    margin: 0 auto;
+    gap: 50px;
+    text-align: left;
+}
+
+.coluna-curriculo h3 {
+    font-size: 1.8rem;
+    color: #ffffff;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #4ecca3;
+    margin-bottom: 30px;
+}
+
+.timeline {
+    position: relative;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 10px;
+    bottom: 10px;
+    width: 2px;
+    background-color: #444;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 30px;
+}
+
+.timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -38px;
+    top: 6px;
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+    background-color: #4ecca3;
+    border: 3px solid #1f1f1f;
+}
+
+.timeline-item h4 {
+    font-size: 1.2rem;
+    color: #e0e0e0;
+    margin: 0 0 5px 0;
+}
+
+.timeline-local {
+    display: block;
+    font-weight: bold;
+    color: #c0c0c0;
+    margin-bottom: 5px;
+}
+
+.timeline-data {
+    display: block;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-bottom: 10px;
+    background-color: #1f1f1f;
+    padding: 3px 8px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.timeline-descricao {
+    padding-left: 20px;
+    color: #c0c0c0;
+}
+
+.timeline-descricao li {
+    margin-bottom: 8px;
+}
+
+.certificados-section {
+    max-width: 1100px;
+    margin: 60px auto 0 auto;
+}
+
+.titulo-cursos {
+    font-size: 1.8rem;
+    color: #ffffff;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #4ecca3;
+    margin-bottom: 30px;
+    text-align: left;
+}
+
+.certificados-carousel {
+    display: flex;
+    gap: 15px;
+    overflow-x: auto;
+    padding-bottom: 15px;
+}
+
+.certificados-carousel::-webkit-scrollbar {
+    height: 8px;
+    background-color: #2b2b2b;
+    border-radius: 10px;
+}
+
+.certificados-carousel::-webkit-scrollbar-thumb {
+    background-color: #4ecca3;
+    border-radius: 10px;
+}
+
+.certificado-card {
+    background-color: #1f1f1f;
+    border: 1px solid #333;
+    padding: 15px 20px;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    flex: 0 0 auto;
+    width: 280px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.certificado-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 3px 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* ==========================================================================
+   Seção: Projetos
+   ========================================================================== */
+#projetos {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+#projetos h2 {
+    font-size: 2.5rem;
+    color: #4ecca3;
+    margin-bottom: 30px;
+}
+
+.container-projetos {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.cartao-projeto {
+    background-color: #1f1f1f;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 20px;
+    transition: transform 0.3s, box-shadow 0.3s;
+    display: flex;
+    flex-direction: column;
+}
+
+.cartao-projeto:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.cartao-projeto > img {
+    max-width: 100%;
+    border-radius: 5px;
+}
+
+.cartao-projeto h3 {
+    color: #4ecca3;
+    margin-top: 15px;
+}
+
+.cartao-projeto p {
+    flex-grow: 1;
+}
+
+.cartao-projeto a {
+    display: inline-block;
+    background-color: #4ecca3;
+    color: #121212;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: background-color 0.3s;
+}
+
+.cartao-projeto a:hover {
+    background-color: #ffffff;
+}
+
+.project-tech-logos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-top: auto; /* Empurra para o fundo */
+    margin-bottom: 15px;
+}
+
+.project-tech-logos i {
+    font-size: 2.2rem;
+    transition: transform 0.3s;
+}
+
+.project-tech-logos img {
+    height: 2.2rem;
+    width: auto;
+    transition: transform 0.3s;
+}
+
+.project-tech-logos i:hover,
+.project-tech-logos img:hover {
+    transform: scale(1.15);
+}
+
+/* ==========================================================================
+   Seção: Recomendações
+   ========================================================================== */
+#recomendacoes {
+    background-color: #1f1f1f;
+    color: #e0e0e0;
+    padding: 80px 20px;
+}
+
+#recomendacoes h2 {
+    color: #4ecca3;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+}
+
+.linha-decorativa {
+    width: 60px;
+    height: 4px;
+    background-color: #4ecca3;
+    margin: 0 auto 50px auto;
+    border-radius: 2px;
+}
+
+.recomendacoes-container {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.recomendacao-item {
+    margin-bottom: 50px;
+}
+
+.recomendacao-item:last-child {
+    margin-bottom: 0;
+}
+
+.recomendacao-item img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid #4ecca3;
+    margin-bottom: 20px;
+}
+
+.recomendacao-item h4 {
+    font-size: 1.5rem;
+    margin: 0 0 5px 0;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.recomendacao-titulo {
+    display: block;
+    font-size: 1rem;
+    color: #c0c0c0;
+    margin-bottom: 25px;
+}
+
+.recomendacao-texto {
+    font-style: italic;
+    border: none;
+    padding: 0 15px;
+    margin: 0;
+    line-height: 1.7;
+    max-width: 700px;
+    margin: 0 auto;
+    color: #e0e0e0;
+}
+
+.recomendacao-link {
+    color: inherit; /* Faz o nome herdar a cor branca do texto */
+    text-decoration: none; /* Remove o sublinhado */
+}
+
+/* Efeito de hover para dar feedback visual */
+.recomendacao-link:hover img {
+    border-color: #ffffff; /* Deixa a borda da foto branca ao passar o mouse */
+}
+
+.recomendacao-link:hover h4 {
+    color: #4ecca3; /* Deixa o nome verde ao passar o mouse */
+}
+
+/* ==========================================================================
+   Rodapé
+   ========================================================================== */
+footer {
+    background-color: #1f1f1f;
+    padding: 40px 20px;
+    text-align: center;
+    border-top: 1px solid #333;
+}
+
+footer h2 {
+    font-size: 2rem;
+    color: #4ecca3;
+}
+
+.links-contato a {
+    color: #4ecca3;
+    text-decoration: none;
+    margin: 0 15px;
+    font-size: 1.2rem;
+}
+
+/* ==========================================================================
+   Animações
+   ========================================================================== */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* --- Estilos do Seletor de Idioma --- */
+.language-switcher {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.language-switcher button {
+    background-color: transparent;
+    border: 1px solid #4ecca3;
+    color: #4ecca3;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.language-switcher button:hover {
+    background-color: #4ecca3;
+    color: #121212;
+}
+
+/* ==========================================================================
+   Botão Voltar ao Topo (Estilo Minimalista)
+   ========================================================================== */
+#btn-topo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 101;
+    
+    /* --- Estilo Minimalista --- */
+    background-color: rgba(31, 31, 31, 0.7); /* Fundo escuro semi-transparente */
+    color: #4ecca3;                          /* Cor do ícone */
+    border: 2px solid #4ecca3;                /* Borda na cor de destaque */
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    
+    /* --- Comportamento e Posição --- */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
+    font-size: 1.2rem;
+    
+    /* --- Efeito de Aparição --- */
+    opacity: 0;
+    visibility: hidden; /* Garante que o botão não seja clicável quando invisível */
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s, background-color 0.3s, color 0.3s;
+}
+
+#btn-topo.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#btn-topo:hover {
+    background-color: #4ecca3; /* Fundo preenchido no hover */
+    color: #121212;             /* Ícone escuro no hover */
+}
+
+
+/* ==========================================================================
+   Ajustes para Telas Pequenas (Responsividade)
+   ========================================================================== */
+@media (max-width: 768px) {
+    .sobre-container,
+    .curriculo-container {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .container-projetos {
+        grid-template-columns: 1fr;
+    }
+
+    .coluna-esquerda,
+    .coluna-direita,
+    .coluna-curriculo {
+        width: 100%;
+        margin-bottom: 40px;
+    }
+    
+    .coluna-curriculo:last-child {
+        margin-bottom: 0;
+    }
+
+    .coluna-esquerda h3,
+    .coluna-direita h2,
+    .coluna-curriculo h3 {
+        text-align: center;
+    }
+
+    .habilidades-container {
+        justify-content: center;
+    }
+}
