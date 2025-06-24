@@ -11,6 +11,7 @@ body {
     background-color: #121212;
     color: #e0e0e0;
     line-height: 1.6;
+    overflow-wrap: break-word; /* Garante que textos longos quebrem a linha */
 }
 
 /* ==========================================================================
@@ -36,6 +37,27 @@ header {
 
 .nav-link:hover {
     color: #4ecca3;
+}
+
+.language-switcher {
+    text-align: center;
+    padding-top: 10px;
+}
+
+.language-switcher button {
+    background-color: transparent;
+    border: 1px solid #4ecca3;
+    color: #4ecca3;
+    padding: 5px 10px;
+    margin: 0 5px;
+    cursor: pointer;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.language-switcher button:hover {
+    background-color: #4ecca3;
+    color: #121212;
 }
 
 /* ==========================================================================
@@ -116,6 +138,13 @@ section {
 
 .coluna-esquerda {
     flex: 1;
+}
+
+.info-pessoal-card {
+    background-color: #121212;
+    border-radius: 15px;
+    padding: 30px;
+    border: 1px solid #333;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -425,7 +454,7 @@ section {
 }
 
 .cartao-projeto p {
-    flex-grow: 1;
+    flex-grow: 1; 
 }
 
 .cartao-projeto a {
@@ -449,7 +478,7 @@ section {
     justify-content: center;
     align-items: center;
     gap: 15px;
-    margin-top: auto; /* Empurra para o fundo */
+    margin-top: auto;
     margin-bottom: 15px;
 }
 
@@ -511,6 +540,20 @@ section {
     border-radius: 50%;
     border: 3px solid #4ecca3;
     margin-bottom: 20px;
+    transition: border-color 0.3s; /* Adicionado para suavizar o hover */
+}
+
+.recomendacao-link {
+    color: inherit;
+    text-decoration: none;
+}
+
+.recomendacao-link:hover img {
+    border-color: #ffffff;
+}
+
+.recomendacao-link:hover h4 {
+    color: #4ecca3;
 }
 
 .recomendacao-item h4 {
@@ -518,6 +561,7 @@ section {
     margin: 0 0 5px 0;
     font-weight: bold;
     color: #ffffff;
+    transition: color 0.3s;
 }
 
 .recomendacao-titulo {
@@ -538,40 +582,82 @@ section {
     color: #e0e0e0;
 }
 
-.recomendacao-link {
-    color: inherit; /* Faz o nome herdar a cor branca do texto */
-    text-decoration: none; /* Remove o sublinhado */
-}
-
-/* Efeito de hover para dar feedback visual */
-.recomendacao-link:hover img {
-    border-color: #ffffff; /* Deixa a borda da foto branca ao passar o mouse */
-}
-
-.recomendacao-link:hover h4 {
-    color: #4ecca3; /* Deixa o nome verde ao passar o mouse */
-}
-
 /* ==========================================================================
    Rodapé
    ========================================================================== */
 footer {
     background-color: #1f1f1f;
-    padding: 40px 20px;
+    padding: 60px 20px 30px 20px;
     text-align: center;
     border-top: 1px solid #333;
 }
 
 footer h2 {
-    font-size: 2rem;
+    font-size: 2.5rem;
     color: #4ecca3;
+    margin-bottom: 15px;
+}
+
+footer p {
+    font-size: 1.1rem;
+    color: #c0c0c0;
+    margin-bottom: 30px;
 }
 
 .links-contato a {
-    color: #4ecca3;
+    color: #c0c0c0;
     text-decoration: none;
     margin: 0 15px;
+    font-size: 2.5rem;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.links-contato a:hover {
+    color: #4ecca3;
+    transform: translateY(-3px);
+}
+
+.copyright {
+    margin-top: 50px;
+    font-size: 0.9rem;
+    color: #666;
+}
+
+/* ==========================================================================
+   Botão Voltar ao Topo
+   ========================================================================== */
+#btn-topo {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    z-index: 101;
+    background-color: rgba(31, 31, 31, 0.7);
+    color: #4ecca3;
+    border: 2px solid #4ecca3;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    outline: none;
     font-size: 1.2rem;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s, background-color 0.3s, color 0.3s;
+}
+
+#btn-topo.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#btn-topo:hover {
+    background-color: #4ecca3;
+    color: #121212;
 }
 
 /* ==========================================================================
@@ -588,75 +674,15 @@ footer h2 {
     }
 }
 
-/* --- Estilos do Seletor de Idioma --- */
-.language-switcher {
-    text-align: center;
-    padding-top: 10px;
-}
-
-.language-switcher button {
-    background-color: transparent;
-    border: 1px solid #4ecca3;
-    color: #4ecca3;
-    padding: 5px 10px;
-    margin: 0 5px;
-    cursor: pointer;
-    border-radius: 5px;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-.language-switcher button:hover {
-    background-color: #4ecca3;
-    color: #121212;
-}
-
-/* ==========================================================================
-   Botão Voltar ao Topo (Estilo Minimalista)
-   ========================================================================== */
-#btn-topo {
-    position: fixed;
-    bottom: 30px;
-    right: 30px;
-    z-index: 101;
-    
-    /* --- Estilo Minimalista --- */
-    background-color: rgba(31, 31, 31, 0.7); /* Fundo escuro semi-transparente */
-    color: #4ecca3;                          /* Cor do ícone */
-    border: 2px solid #4ecca3;                /* Borda na cor de destaque */
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    
-    /* --- Comportamento e Posição --- */
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
-    outline: none;
-    font-size: 1.2rem;
-    
-    /* --- Efeito de Aparição --- */
-    opacity: 0;
-    visibility: hidden; /* Garante que o botão não seja clicável quando invisível */
-    transform: translateY(10px);
-    transition: opacity 0.3s, transform 0.3s, background-color 0.3s, color 0.3s;
-}
-
-#btn-topo.show {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-#btn-topo:hover {
-    background-color: #4ecca3; /* Fundo preenchido no hover */
-    color: #121212;             /* Ícone escuro no hover */
-}
-
-
 /* ==========================================================================
    Ajustes para Telas Pequenas (Responsividade)
    ========================================================================== */
+@media (max-width: 992px) {
+    .container-projetos {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
 @media (max-width: 768px) {
     .sobre-container,
     .curriculo-container {
